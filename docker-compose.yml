@@ -2,32 +2,34 @@ version: '3.1'
 
 services:
 
-#  db:
-#    image: postgres:10.1
-#    environment:
-#      POSTGRES_PASSWORD: Passw0rd
-#    ports:
-#      - "5432:5432"
-#    networks:
-#      - backend
-#    volumes:
-#      - pgdata:/var/lib/postgresql/data/
+  db:
+    image: postgres:10.1
+    container_name: db_postgres
+    environment:
+      POSTGRES_PASSWORD: Passw0rd
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+    volumes:
+      - db-data:/var/lib/postgresql/data/
 
   web:
     build: ./web/
-    container_name: django_web
+    container_name: web_django
     ports:
       - "8000:8000"
     volumes:
       - ./web:/code    # mounts ./web in host to /code in container
-    command: django-admin startproject my_site .
+#    command: django-admin startproject my_site .    # Initial Django project
+    command: python manage.py runserver 0.0.0.0:8000
     networks:
       - backend
-#    depends_on:
-#      - db
+    depends_on:
+      - db
 
-#volumes:
-#  pgdata:
+volumes:
+  db-data:
 
 networks:
   backend:
