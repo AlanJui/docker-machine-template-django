@@ -15,18 +15,43 @@ services:
 
   web:
     build: ./web/
+    container_name: django_web
     ports:
       - "8000:8000"
     volumes:
       - ./web:/code    # mounts ./web in host to /code in container
     command: django-admin startproject my_site .
-#    networks:
-#      - backend
+    networks:
+      - backend
 #    depends_on:
 #      - db
 
 #volumes:
 #  pgdata:
 
-#networks:
-#  backend:
+networks:
+  backend:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
