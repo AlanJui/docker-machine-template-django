@@ -128,6 +128,7 @@ docker-compose up
 驗證 docker machine: test
 
 (1) docker-machine ssh test
+
 (2) docker image ls
 
     docker@test:~$ docker image ls
