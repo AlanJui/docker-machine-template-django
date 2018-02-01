@@ -8,7 +8,7 @@ WORKDIR /code
 # copies everything in current directory into filesystem of image in /code/ directory.
 #COPY . /code/
 ADD requirements.txt /code/
-RUN pip install -r /code/requirements.txt
+RUN pip install -r requirements.txt
 
-ADD ./ /code/
+ADD . /code/
 

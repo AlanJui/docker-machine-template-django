@@ -26,7 +26,8 @@ SECRET_KEY = 'sfq!_ila5xpmdhcuud(0c=@kn1o4l^6b8$%78(+%oh6)(kos&('
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.99.101'
+    '127.0.0.1',
+    'localhost',
 ]
 
 
@@ -87,8 +88,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Passw0rd',
-        # 'HOST': 'db',
-        'HOST': '192.168.99.101',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
